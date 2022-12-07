@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(50, bg.clientWidth / bg.clientHeight,
 
 //texture
 const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load('./../image/texture.png');
+const texture = textureLoader.load('./../image/tech-nmap.jpg');
 
 //material
 const materialBasic = new THREE.MeshBasicMaterial({ color: "#fbf665", wireframe: true });
@@ -140,16 +140,13 @@ function addStars() {
 }
 
 
-
+let x = 0;
+let y = 0;
 
 //movement control
 document.addEventListener('mousemove', function (e) {
-    let x = e.clientX / window.innerWidth - 0.5;
-    let y = e.clientY / window.innerHeight - 0.5;
-
-    sphere.position.z = -y * 5;
-    sphere.rotation.x += y * 0.1;
-    sphere.rotation.y += x * 0.1;
+    x = e.clientX / window.innerWidth - 0.5;
+    y = e.clientY / window.innerHeight - 0.5;
 });
 
 
@@ -162,6 +159,10 @@ function animate() {
     for (const star of stars) {
         star.move();
     }
+
+    sphere.position.z = -y * 2;
+    sphere.rotation.x += y * 0.1;
+    sphere.rotation.y += x * 0.1;
 }
 animate();
 addStars();
