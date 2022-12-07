@@ -62,8 +62,12 @@ light2.position.set(-20, 0, 5);
 scene.add(light2);
 
 //control
-
-camera.position.z = 5;
+if (window.innerWidth > window.innerHeight) {
+    camera.position.z = 5;
+}
+else {
+    camera.position.z = 15;
+}
 
 cube.position.x = -3;
 capsule.position.x = 3;
