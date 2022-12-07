@@ -66,7 +66,7 @@ if (window.innerWidth > window.innerHeight) {
     camera.position.z = 5;
 }
 else {
-    camera.position.z = 15;
+    camera.position.z = 10;
 }
 
 cube.position.x = -3;
