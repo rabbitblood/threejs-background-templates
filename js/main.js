@@ -45,19 +45,19 @@ const torusGeometry = new THREE.TorusGeometry(1, 0.5, 16, 100);
 const torus = new THREE.Mesh(torusGeometry, materialStandard);
 
 //sphere
-const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+const sphereGeometry = new THREE.SphereGeometry(1, 64, 64);
 const sphere = new THREE.Mesh(sphereGeometry, materialStandard);
 scene.add(sphere);
 
 
 //light
 const light1 = new THREE.PointLight("red", 1, 50);
-light1.intensity = 40;
+light1.intensity = 50;
 light1.position.set(20, 0, 5);
 scene.add(light1);
 
 const light2 = new THREE.PointLight("blue", 1, 50);
-light2.intensity = 40;
+light2.intensity = 50;
 light2.position.set(-20, 0, 5);
 scene.add(light2);
 
@@ -87,7 +87,7 @@ window.addEventListener('resize', function () {
 
 class star {
     constructor() {
-        this.geometry = new THREE.SphereGeometry(Math.random() * 1 + 0.5, Math.random() * 50 + 5, Math.random() * 50 + 5);
+        this.geometry = new THREE.SphereGeometry(Math.random() * 1 + 0.5, 32, 32);
         this.material = new THREE.MeshStandardMaterial({ color: "black" });
         this.star = new THREE.Mesh(this.geometry, this.material);
 
@@ -125,16 +125,16 @@ class star {
     }
 
     newDestination() {
-        this.destinationx = this.originalx + Math.random() * 5 - 2.5;
-        this.destinationy = this.originaly + Math.random() * 5 - 2.5;
-        this.destinationz = this.originalz + Math.random() * 5 - 2.5;
+        this.destinationx = this.originalx + Math.random() * 10 - 5;
+        this.destinationy = this.originaly + Math.random() * 10 - 5;
+        this.destinationz = this.originalz + Math.random() * 10 - 5;
     }
 }
 
 let stars = [];
 
 function addStars() {
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 500; i++) {
         stars.push(new star());
     }
 }
